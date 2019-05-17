@@ -49,6 +49,7 @@ const watchServer = () => {
 };
 
 const runServer = () => {
+  parallel(css, html, javascript);
   browserSync.init({
     server: {
       baseDir: "./dist"
@@ -56,6 +57,6 @@ const runServer = () => {
   });
 };
 
-const serve = parallel(watchServer, runServer);
+const serve = parallel(html, css, javascript, watchServer, runServer);
 
 export default serve;
